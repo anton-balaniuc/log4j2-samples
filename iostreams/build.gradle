@@ -1,6 +1,8 @@
 group 'log4j2'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'application'
+mainClassName = 'App'
 
 dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-iostreams', version: '2.9.1'
