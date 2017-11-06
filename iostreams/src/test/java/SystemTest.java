@@ -20,27 +20,31 @@ public class SystemTest {
     public static void before() {
         System.setOut(IoBuilder.forLogger(LogManager.getLogger("system.out")).buildPrintStream());
 
-        System.setErr(IoBuilder.forLogger(LogManager.getLogger("system.err"))
-                .buildPrintStream());
+        System.setErr(IoBuilder.forLogger(LogManager.getLogger("system.err")).buildPrintStream());
     }
-
 
 
     @Test
     public void system_out_file() throws Exception {
 
-        System.out.println("Lorem ipsum");
+        String message = "Lorem ipsum";
+        System.out.println(message);
 
-        Path pathTofile = Paths.get(((FileAppender)configuration.getAppender("stdout_to_file")).getFileName());
-        Assert.assertTrue("file must have only one message",  Files.lines(pathTofile).count() == 1);
-        Assert.assertTrue("file must have ",  Files.lines(pathTofile).count() == 1);
+        Path pathTofile = Paths.get(((FileAppender) configuration.getAppender("stdout_to_file")).getFileName());
+        Assert.assertTrue("file must have only one message", Files.lines(pathTofile).count() == 1);
+        Assert.assertTrue("file must have properMessage", Files.lines(pathTofile).allMatch(l -> l.contains(message)));
 
     }
 
     @Test
-    public void system_error_file() {
+    public void system_error_file() throws Exception {
 
-        System.err.println("dolor sit amet");
+        String message = "dolor sit amet";
+        System.err.println(message);
+
+        Path pathTofile = Paths.get(((FileAppender) configuration.getAppender("stderr_to_file")).getFileName());
+        Assert.assertTrue("file must have only one message", Files.lines(pathTofile).count() == 1);
+        Assert.assertTrue("file must have properMessage", Files.lines(pathTofile).allMatch(l -> l.contains(message)));
 
     }
 }
