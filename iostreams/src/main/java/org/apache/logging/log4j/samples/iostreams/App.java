@@ -1,3 +1,5 @@
+package org.apache.logging.log4j.samples.iostreams;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.io.IoBuilder;
 
