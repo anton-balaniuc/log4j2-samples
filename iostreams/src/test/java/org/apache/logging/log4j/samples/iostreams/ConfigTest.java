@@ -40,7 +40,7 @@ public class ConfigTest {
     public void stdoutAppender_correctFileLocation_true() {
         FileAppender fileAppender = (FileAppender) configuration.getAppender("stdout_to_file");
 
-        Assert.assertEquals("File appender should log to a proper place", "out/logs/sout.log", fileAppender
+        Assert.assertEquals("File appender should log to a proper place", "build/logs/sout.log", fileAppender
                 .getFileName());
     }
 
