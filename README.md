@@ -25,3 +25,6 @@ There are 2 tests:
 which verifies if log4j2 is configured property for unit tests. 
 * [SystemTest](iostreams/src/test/java/org/apache/logging/log4j/samples/iostreams/SystemTest.java) 
 which verifies if `System.out` and `System.err` actually write to a file. 
+
+
+see also [extension](extension/README.md)

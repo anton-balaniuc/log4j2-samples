@@ -16,7 +16,7 @@ public class EmojiConvertor extends LogEventPatternConverter{
          * Singleton.
          */
         private static final EmojiConvertor INSTANCE =
-                new EmojiConvertor(null);
+                new EmojiConvertor(new String[]{"Emoji","emoji"});
 
         /**
          * Private constructor.
@@ -24,7 +24,7 @@ public class EmojiConvertor extends LogEventPatternConverter{
          * @param options options, may be null.
          */
         private EmojiConvertor(final String[] options) {
-            super("Emoji", "emoji");
+            super(options[0], options[1]);
         }
 
         /**
